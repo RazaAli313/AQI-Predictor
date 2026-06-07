@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-# from routes.user import user_router
+from routers.openweather import openweather_router
 
 app=FastAPI()
 
@@ -18,11 +18,11 @@ app.add_middleware(
 )
 
 app.include_router(
+    openweather_router,
     prefix="/api",
-    # router=user_router
 )
 
 
 if __name__=="__main__":
     import uvicorn
-    uvicorn.run(app, host="", port=8000)
+    uvicorn.run(app, host="127.0.0.1", port=8000)
