@@ -5,7 +5,9 @@ from routers.openweather import openweather_router
 app=FastAPI()
 
 
+
 CORS_ORIGINS=[
+    "http://localhost:3000",
     "http://localhost:5173"
 ]
 
