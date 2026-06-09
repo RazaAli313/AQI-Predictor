@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routers.openweather import openweather_router
+from routers.predict import predict_router
 
 app=FastAPI()
 
@@ -21,6 +22,11 @@ app.add_middleware(
 
 app.include_router(
     openweather_router,
+    prefix="/api",
+)
+
+app.include_router(
+    predict_router,
     prefix="/api",
 )
 
